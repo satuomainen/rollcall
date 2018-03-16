@@ -1,0 +1,32 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "plugins": ["react"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "rules": {
+    "max-len": ["error", {
+      "code": 120
+    }],
+    "class-methods-use-this": 0,
+    "comma-dangle": ["warn", "never"],
+    "new-cap": ["warn", {"capIsNewExceptions": ["Dimensions", "Map", "List", "UserAuthWrapper"]}],
+    "no-unused-vars": "warn",
+    "react/prefer-stateless-function": "warn",
+    "react/forbid-prop-types": 0,
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true}],
+    "arrow-parens": ["warn", "as-needed"]
+  }
+}
