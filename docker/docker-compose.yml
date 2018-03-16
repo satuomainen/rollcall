@@ -1,0 +1,15 @@
+# Postgres user:postgres, password:postgres
+version: '3.1'
+services:
+  db:
+    image: postgres:9.6-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - "rollcall_dbdata:/var/lib/postgresql/data"
+volumes:
+  rollcall_dbdata:

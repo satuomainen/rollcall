@@ -1,0 +1,3 @@
+CREATE USER rollcall WITH CREATEDB PASSWORD 'rollcall';
+CREATE DATABASE rollcall;
+GRANT ALL PRIVILEGES ON DATABASE rollcall TO rollcall;
