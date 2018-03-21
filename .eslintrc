@@ -27,6 +27,8 @@
     "react/prefer-stateless-function": "warn",
     "react/forbid-prop-types": 0,
     "semi": ["error", "always", { "omitLastInOneLineBlock": true}],
-    "arrow-parens": ["warn", "as-needed"]
+    "arrow-parens": ["warn", "as-needed"],
+    "space-before-function-paren": 0,
+    "prefer-arrow-callback": ["warn", { "allowNamedFunctions": true, "allowUnboundThis": false }]
   }
 }
