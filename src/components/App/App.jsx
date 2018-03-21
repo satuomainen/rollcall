@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
+
 import logo from './logo.svg';
 import './style.css';
 
 class App extends Component {
-
   render() {
     const { className, ...props } = this.props;
     return (
@@ -17,7 +17,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Link to='about'><button>Test React Router</button></Link>
+        <Link to="about"><button>Test React Router</button></Link>
         <br />
         <br />
         <button onClick={this.props.actions.expressTest}>Test if Express is working</button>
