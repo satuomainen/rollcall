@@ -13,6 +13,14 @@ The frontend is a React/Redux app with redux-promise middleware for handling act
 * Node & npm
 * Docker and Docker compose (for running the provided [PostgreSQL docker container](docker/README.md))
 
+## Directory layout
+
+* `db`: Backend code for entity definitons and database connection
+* `docker`: Docker-compose for PostgreSQL and project DB initialization
+* `public`: The static files served by the application
+* `server`: Backend code, Node & Express app
+* `src`: Frontend code, React & Redux app
+
 ## Starting up
 
 * Install dependencies: `npm install`
