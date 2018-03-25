@@ -1,33 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 
-import logo from './logo.svg';
+import AppHeader from '../AppHeader';
+import DashboardView from '../../dashboard/DashboardView';
+import WelcomeView from '../WelcomeView/index';
+import { getAccount, postLogout } from '../../account/authentication.api';
+
 import './style.css';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.getAccount();
+  }
+
   render() {
-    const { className, ...props } = this.props;
+    const { className } = this.props;
+    const appBody = this.props.isAuthenticated ? <DashboardView /> : <WelcomeView />;
+
     return (
-      <div className={classnames('App', className)} {...props}>
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React - Fullstack!</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Link to="about"><button>Test React Router</button></Link>
-        <br />
-        <br />
-        <button onClick={this.props.actions.expressTest}>Test if Express is working</button>
-        <br />
-        <br />
-        <button onClick={this.props.actions.dbTest}>Test if Express and Sequelize are working</button>
-        <div style={{ padding: '30px' }}>{this.props.results}</div>
+      <div className={classnames('App', className)} >
+        <AppHeader />
+        {appBody}
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: state.account.isAuthenticated,
+    account: state.account.account
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getAccount,
+    postLogout
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -146,14 +146,18 @@ router.post('/login', (req, res, next) => {
   authenticate(req, res, next);
 });
 
+function doLogout(req, res) {
+  req.logout();
+  res.sendStatus(HttpStatus.OK);
+}
+
 /**
  * POST /api/v1/account/logout
+ * GET  /api/v1/account/logout
  *
  * Logs the participant out and clears the session.
  */
-router.post('/logout', (req, res) => {
-  req.logout();
-  res.sendStatus(HttpStatus.OK);
-});
+router.post('/logout', doLogout);
+router.get('/logout', doLogout);
 
 module.exports = router;

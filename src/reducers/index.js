@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import demo from './demo';
+import account from '../account/authentication.reducer';
 
 const Reducers = combineReducers({
-  demo,
+  account,
   routing: routerReducer
 });
 
