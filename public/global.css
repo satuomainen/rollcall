@@ -6,3 +6,9 @@ h1.brand-text {
   font-family: 'Courgette', sans-serif;
   font-size: 8rem;
 }
+
+.navbar .navbar-brand {
+  font-family: 'Courgette', sans-serif;
+  font-size: 3rem;
+  color: #fff;
+}

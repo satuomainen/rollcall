@@ -4,19 +4,14 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
-import { postLogout, getAccount } from '../account/authentication.api';
+import { getAccount } from '../account/authentication.api';
 
 class DashboardView extends Component {
   constructor(props) {
     super(props);
 
-    this.handleLogout = this.handleLogout.bind(this);
     this.handleGetAccount = this.handleGetAccount.bind(this);
     this.createAccountTable = this.createAccountTable.bind(this);
-  }
-
-  handleLogout() {
-    this.props.postLogout();
   }
 
   handleGetAccount() {
@@ -56,7 +51,6 @@ class DashboardView extends Component {
         </div>
         <div className="row">
           <div>
-            <button className="btn btn-warning" onClick={this.handleLogout}>Kirjaudu ulos</button>
             <button className="btn btn-info" onClick={this.handleGetAccount}>Hae omat tiedot</button>
           </div>
         </div>
@@ -69,7 +63,6 @@ class DashboardView extends Component {
 DashboardView.propTypes = {
   isAuthenticated: PropTypes.bool,
   account: PropTypes.object,
-  postLogout: PropTypes.func.isRequired,
   getAccount: PropTypes.func.isRequired
 };
 
@@ -78,6 +71,6 @@ const mapStateToProps = state => ({
   account: state.account.account
 });
 
-const mapDispatchToProps = dispatch => (bindActionCreators({ postLogout, getAccount }, dispatch));
+const mapDispatchToProps = dispatch => (bindActionCreators({ getAccount }, dispatch));
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardView);
