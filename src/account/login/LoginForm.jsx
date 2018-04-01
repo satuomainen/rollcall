@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, ButtonToolbar, ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -93,6 +94,15 @@ class LoginForm extends Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  loginStatus: PropTypes.number,
+  registrationStatus: PropTypes.number,
+  postLogin: PropTypes.func.isRequired,
+  clearLoginStatus: PropTypes.func.isRequired,
+  clearRegistrationStatus: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
   return {

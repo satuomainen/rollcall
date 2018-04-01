@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { bindActionCreators } from 'redux';
@@ -6,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import AppHeader from '../AppHeader';
 import DashboardView from '../../dashboard/DashboardView';
 import WelcomeView from '../WelcomeView/index';
-import { getAccount, postLogout } from '../../account/authentication.api';
+import { getAccount } from '../../account/authentication.api';
 
 import './style.css';
 
@@ -28,17 +29,21 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  className: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
+  getAccount: PropTypes.func.isRequired
+};
+
 function mapStateToProps(state) {
   return {
-    isAuthenticated: state.account.isAuthenticated,
-    account: state.account.account
+    isAuthenticated: state.account.isAuthenticated
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getAccount,
-    postLogout
+    getAccount
   }, dispatch);
 }
 

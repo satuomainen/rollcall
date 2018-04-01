@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -55,8 +56,8 @@ class DashboardView extends Component {
         </div>
         <div className="row">
           <div>
-          <button className="btn btn-warning" onClick={this.handleLogout}>Kirjaudu ulos</button>
-          <button className="btn btn-info" onClick={this.handleGetAccount}>Hae omat tiedot</button>
+            <button className="btn btn-warning" onClick={this.handleLogout}>Kirjaudu ulos</button>
+            <button className="btn btn-info" onClick={this.handleGetAccount}>Hae omat tiedot</button>
           </div>
         </div>
         {this.createAccountTable()}
@@ -64,6 +65,13 @@ class DashboardView extends Component {
     );
   };
 }
+
+DashboardView.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  account: PropTypes.object,
+  postLogout: PropTypes.func.isRequired,
+  getAccount: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   isAuthenticated: state.account.isAuthenticated,

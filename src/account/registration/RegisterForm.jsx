@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   ButtonToolbar,
@@ -107,7 +108,7 @@ class RegisterForm extends Component {
 
   render() {
     if (this.props.registrationStatus === 200) {
-      return <Redirect to='/login' />;
+      return <Redirect to="/login" />;
     }
 
     const usernameTakenError = this.props.registrationStatus === 409
@@ -185,9 +186,15 @@ class RegisterForm extends Component {
   }
 }
 
+RegisterForm.propTypes = {
+  registrationStatus: PropTypes.number,
+  postRegistration: PropTypes.func,
+  clearRegistrationStatus: PropTypes.func
+
+};
+
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.account.isLoggedIn,
     registrationStatus: state.account.registrationStatus
   };
 }
