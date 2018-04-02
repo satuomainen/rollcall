@@ -1,4 +1,5 @@
 const db = require('../db');
+const logger = require('debug')('rollcall:seed');
 
 // Run the model definitions
 require('./models');
@@ -47,10 +48,10 @@ const seedParticipationStatus = () => db.sequelize.Promise.map([
 db.sequelize.didSync
   .then(() => db.sequelize.sync({ force: true }))
   .then(seedParticipants)
-  .then(participants => console.log(`Seeded ${participants.length} participants OK`))
+  .then(participants => logger(`Seeded ${participants.length} participants OK`))
   .then(seedRollcalls)
-  .then(rollcalls => console.log(`Seeded ${rollcalls.length} rollcalls OK`))
+  .then(rollcalls => logger(`Seeded ${rollcalls.length} rollcalls OK`))
   .then(seedParticipationStatus)
-  .then(participationStatuses => console.log(`Seeded ${participationStatuses.length} participation statuses OK`))
-  .catch(error => console.error(error))
+  .then(participationStatuses => logger(`Seeded ${participationStatuses.length} participation statuses OK`))
+  .catch(error => logger('%O', error))
   .finally(() => db.sequelize.close());

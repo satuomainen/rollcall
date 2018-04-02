@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const session = require('express-session');
 const morgan = require('morgan');
+const httpLogger = require('debug')('rollcall:http');
 const path = require('path');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -48,10 +49,8 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Setup logger
-app.use(morgan(
-  ':remote-addr - :remote-user [:date[clf]] ' +
-  '":method :url HTTP/:http-version" :status ' +
-  ':res[content-length] :response-time ms'));
+const logPattern = ':remote-addr ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms';
+app.use(morgan(logPattern, { stream: { write: m => httpLogger(m) } }));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
