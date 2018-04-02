@@ -10,10 +10,12 @@ const authenticateUser = (email, plainTextPassword, done) => {
     .then((user, err) => {
       if (err) {
         done(err);
+        return;
       }
 
       if (!user) {
         done(null, false, { message: 'Username or password incorrect' });
+        return;
       }
       user
         .verifyPassword(plainTextPassword)

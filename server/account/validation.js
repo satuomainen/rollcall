@@ -51,11 +51,17 @@ function validatePasswordMatchesConfirmation(req, res, next) {
 }
 
 /**
- * Validate that the request contains "currentPassword" and that it matches to logged in
- * participant's password.
+ * If the request contains "password" and "currentPassword", then "currentPassword" must match the
+ * authenticated user's password.
  */
 function validateCurrentPassword(req, res, next) {
   const participantData = Object.assign({}, req.body);
+  const containsNewPassword = req.body.password;
+
+  if (!containsNewPassword) {
+    next();
+    return;
+  }
 
   if (!participantData.currentPassword) {
     res.sendStatus(HttpStatus.UNAUTHORIZED);

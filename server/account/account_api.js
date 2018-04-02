@@ -28,6 +28,7 @@ function pruneUnsetParticipantFields(participant) {
  *   "name": "Eric Example",
  *   "email": "eric@example.com",
  *   "password": "neveryoumindmypassword"
+ *   "passwordConfirm": "neveryoumindmypassword"
  * }
  *
  * Creates a new participant that can log in to the service
