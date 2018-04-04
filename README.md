@@ -1,5 +1,7 @@
 # Rollcall
 
+[![Build Status](https://travis-ci.org/satuomainen/rollcall.svg?branch=master)](https://travis-ci.org/satuomainen/rollcall)
+
 This is a web application to manage rollcalls. A trip leader can create a rollcall and invite
 travelers to it. When it's time to start the next leg of the journey, this app helps to collect
 the attendance status.

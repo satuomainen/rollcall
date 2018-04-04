@@ -1,0 +1,18 @@
+language: node_js
+sudo: false
+node_js:
+  - "8.9"
+install:
+  - npm install
+script:
+  - npm run test-travis
+services:
+  - postgresql
+before_script:
+  - psql -c "create user rollcall_ci with password 'rollcall_ci';" -U postgres
+  - psql -c 'create database rollcall_test owner rollcall_ci;' -U postgres
+env:
+  global:
+    - DATABASE_NAME=rollcall_test
+    - DATABASE_USER=rollcall_ci
+    - DATABASE_PASSWORD=rollcall_ci
