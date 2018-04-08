@@ -34,7 +34,9 @@
     "yargs": "11.0.0"
   },
   "scripts": {
-    "start": "DEBUG=rollcall:* concurrently \"react-scripts start\" \"nodemon server\"",
+    "heroku-postbuild": "react-scripts build",
+    "start": "node server",
+    "start-dev": "DEBUG=rollcall:* concurrently \"react-scripts start\" \"nodemon server\"",
     "build": "react-scripts build",
     "react- test": "react-scripts test --env=jsdom",
     "test": "mocha --watch backend_tests/**/**.test.js",

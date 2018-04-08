@@ -9,6 +9,8 @@ const db = {};
 
 function getDatabaseConnection() {
   const dbName = process.env.DATABASE_NAME || 'rollcall';
+  const dbHost = process.env.DATABASE_HOST || 'localhost';
+  const dbPort = parseInt(process.env.DATABASE_PORT, 10) || 5432;
   const dbUsername = process.env.DATABASE_USER || 'rollcall';
   const dbPassword = process.env.DATABASE_PASSWORD || 'rollcall';
 
@@ -16,7 +18,8 @@ function getDatabaseConnection() {
 
   // Create the database instance
   return new Sequelize(dbName, dbUsername, dbPassword, {
-    host: 'localhost',
+    host: dbHost,
+    port: dbPort,
     dialect: 'postgres',
     pool: {
       max: 5,

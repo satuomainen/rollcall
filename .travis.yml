@@ -16,3 +16,8 @@ env:
     - DATABASE_NAME=rollcall_test
     - DATABASE_USER=rollcall_ci
     - DATABASE_PASSWORD=rollcall_ci
+deploy:
+  provider: heroku
+  app: paikalla
+  api_key:
+    secure: PLjqqPAsi7II1gyKCiNgWf0MDJSlVpoF/tSPstIyQpG0VoUIwtwcyLCZNCnJqc3i/4I4YTC/Ii8J+DZd7kk5L9ieWAVGgsGpQI9LufhCTz/vlm9rIPwb0nYwMD98H3oOst71PNBRwbcyBtC0wsw/7PwtVK3zsqTU08GJ+fQz7Yt4I2eBBiHLuYWhfeBWkRySEbev/uMYteatOLuxIM1hM8/DfAdjX4TiHQ+GTneLthMNClQDkGBoCJiSNDgI0AjS5DyNwcdsBZ57UG/KnNR9EePHfdWSjxyOhmTFqDuBPfqSr6Y0H8Nx/dJhtl5l744gywa55ITWDry42UQ8NmQ7bN7Gbr5WFuOjDWbDgHvDWCXJPNEISr+Huirz5kTizLzvqdRDkI/vQSkPWw1xYAD83SKvMrTRLhUglQlfMQ3plRdsIowZ9XY7dVIAj37xsQM2hPzdXoSl/nRvltWi94f0IMripowEnJk97IJurHEfPF2p12UCz1+zsLgqlsEp8sGPDKrGXoKSulQEzXsjSyVp/IDWH+EW3VKLr9gI9uv4YlLu4L3rxytCg0ateE5fnpG/FF4WepZP958+oarehmEXTuJWtdF6WFa2xE8eH4kjR8NvdbDvVDlYyR+pEDfE9UWVxFi4A9CjpqRWtAPTMSsjSKeytg0TZo39yUH7lJhnFx4=
