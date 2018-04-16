@@ -1,0 +1,2 @@
+CodeceptJS error screenshots will be here.
+

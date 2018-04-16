@@ -59,7 +59,7 @@ class LoginForm extends Component {
     }
 
     const afterRegistration = this.props.registrationStatus === 200
-      ? <div className="bg-success text-center">Rekisteröityminen onnistui, tervetuloa!</div>
+      ? <div className="bg-success text-center registerSuccess">Rekisteröityminen onnistui, tervetuloa!</div>
       : null;
 
     const invalidCredentials = this.didPreviousLoginFail()

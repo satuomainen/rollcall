@@ -46,6 +46,7 @@ router.post(
       })
       .catch(err => {
         if (err instanceof UniqueConstraintError) {
+          console.error(err);
           res.sendStatus(HttpStatus.CONFLICT);
           return;
         }
