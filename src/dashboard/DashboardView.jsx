@@ -44,7 +44,7 @@ class DashboardView extends Component {
     }
 
     return (
-      <div className="container">
+      <div className="container loggedInView">
         <div className="row">
           <h2>Tähän tulee näkyviin kaksi listaa nimenhuutoja</h2>
           <p>Ne joihin osallistun ja ne jotka olen perustanut</p>

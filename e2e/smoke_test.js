@@ -14,12 +14,12 @@ Scenario('Register', (I) => {
 
   // Register dialog
   I.see('Luo tunnus');
-  I.seeCurrentUrlEquals('/register');
-  I.fillField('Nimi (pakollinen)', 'Teuvo Testaaja');
-  I.fillField('Sähköpostiosoite (pakollinen)', 'teuvo.testaaja@example.com');
-  I.fillField('Salasana (pakollinen)', 'salasan1Passw0rd');
-  I.fillField('Salasana uudelleen (pakollinen)', 'salasan1Passw0rd');
-  I.click('Rekisteröidy');
+
+  I.register({
+    name: 'Teuvo Testaaja',
+    email: 'teuvo.testaaja@example.com',
+    password: 'salasan1Passw0rd'
+  });
 
   I.waitForElement('.registerSuccess', 2);
   I.see('Rekisteröityminen onnistui');
@@ -29,11 +29,10 @@ Scenario('Register', (I) => {
 Scenario('Login', (I) => {
   I.amOnPage('/');
   I.click('Kirjaudu');
-  I.seeCurrentUrlEquals('/login');
-  I.fillField('Sähköpostiosoite', 'teuvo.testaaja@example.com');
-  I.fillField('Salasana', 'salasan1Passw0rd');
-  I.click('Kirjaudu');
 
+  I.login('teuvo.testaaja@example.com', 'salasan1Passw0rd');
+
+  I.waitForElement('.loggedInView', 2);
   I.see('Tähän tulee näkyviin kaksi listaa nimenhuutoja');
   I.seeCurrentUrlEquals('/');
 });
