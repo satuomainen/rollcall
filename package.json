@@ -30,7 +30,7 @@
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
     "redux-promise": "0.5.3",
-    "sequelize": "4.36.0",
+    "sequelize": "5.15.1",
     "yargs": "11.0.0"
   },
   "scripts": {
