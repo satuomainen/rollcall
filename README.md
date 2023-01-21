@@ -1,7 +1,5 @@
 # Rollcall
 
-[![Build Status](https://travis-ci.org/satuomainen/rollcall.svg?branch=master)](https://travis-ci.org/satuomainen/rollcall)
-
 This is a web application to manage rollcalls. A trip leader can create a rollcall and invite
 travelers to it. When it's time to start the next leg of the journey, this app helps to collect
 the attendance status.
@@ -48,14 +46,6 @@ object in [package.json](package.json) for more info.
   * heroku config:set DATABASE_USER=(value of user from pg:credentials:url)
   * heroku config:set DATABASE_PASSWORD=(value of password from pg:credentials:url)
 * Push the app to Heroku: `git push heroku master:master`
-
-To deploy directly from Travis CI to Heroku:
-* Put the _encrypted_ Heroku API key to `.travis.yml`:
-  `travis encrypt $(heroku auth:token) --add deploy.api_key`
-* See
-  * [Deploying to Heroku from Travis CI](https://docs.travis-ci.com/user/deployment/heroku/)
-  * [Travis encryption](https://docs.travis-ci.com/user/encryption-keys/)
-  * [Travis security](https://docs.travis-ci.com/user/best-practices-security/)
 
 ## License
 

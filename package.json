@@ -40,7 +40,6 @@
     "build": "react-scripts build",
     "react- test": "react-scripts test --env=jsdom",
     "test": "mocha --watch backend_tests/**/**.test.js",
-    "test-travis": "mocha --exit backend_tests/**/**.test.js",
     "eject": "react-scripts eject",
     "seed": "node db/seed.js",
     "prepare_e2e": "node db/prepare_e2e.js",
